@@ -3,4 +3,14 @@
 </div>
 <div class="text-center id-"user-desctription" >
   <%= user.nickname %>
+  <% if user_signed_in? %>
+    <div id="follow-form">
+      <% if current_user.following?(@user) %>
+        <div id="liked.btn.btn-default">いいね済み</div>
+      <% else %>
+        <%= render 'follow', {relationship: @relationship} %>
+      <br>
+        <%= user.profile %>
+    </div>
+
 </div>
